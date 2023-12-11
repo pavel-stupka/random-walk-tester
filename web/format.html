@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>RWTester</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="Cache-control" content="no-cache"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class="main">
+    <div class="header">
+        <span class="header-title">RWTester</span><br/>
+        <span class="header-title-two">software for testing a random walk</span>
+    </div>
+    <div class="container">
+        <div class="navigation"><script type="text/javascript" src="menu.js"></script></div>
+        <div class="page_content">
+<!-- ********************************************************************** -->
+
+<h1>Graph file format</h1>
+
+<p>This tutorial describes a graph file format that RWTester can work with.
+Graphs are stored in plain text files having a suffix <code>.graph</code>.
+Each line of such a file can be either a vertex, an edge or a comment.</p>
+
+<p>Here are some examples</p>
+
+<ul>
+  <li>Vertex<code class="as_pre">[A]</code></li>
+  <li>Edge<code class="as_pre">[A] -> [B]</code></li>
+  <li>Comment<code class="as_pre"># This is a comment</code></li>
+</ul>
+
+<h2>Example of a graph file</h2>
+<pre>
+# directed edge from A to B with a weight = 5
+[A] -&gt; [B] 5
+
+# directed edge from B to A with a weight = 3 
+[A] &lt;- [B] 3
+
+# undirected edge between A and B with a weight = 1
+[A] -- [B] 1
+
+# undirected edge between A and B with a default weight = 1
+[A] -- [B]
+
+# vertex C
+[C]
+</pre>
+
+<h2>Strict notation</h2>
+<p class="para">
+Each line of a graph file can be described by the regular expression from 
+the theory of formal languages.
+</p>
+<ul>
+  <li>A = printable characters</li>
+  <li>C = printable characters except '[' and ']'</li>
+  <li>W = white space characters</li>
+  <li>I = digits</li>
+
+</ul>
+
+<p class="para">
+   Edge:<br/>
+   <code class="as_pre">W<sup>*</sup>[C<sup>+</sup>]W<sup>*</sup>("--" + "-&gt;" + "&lt;-")W<sup>*</sup>[C<sup>+</sup>](W<sup>*</sup> + W<sup>*</sup>I<sup>+</sup>W<sup>*</sup>)</code>
+
+   Vertex:<br/>
+   <code class="as_pre">W<sup>*</sup>[C<sup>+</sup>]W<sup>*</sup></code>
+
+   Comment:<br/>
+   <code class="as_pre">W<sup>*</sup>#A<sup>*</sup></code>
+
+   Empty line:<br/>
+   <code class="as_pre">W<sup>*</sup></code>
+</p>
+
+
+
+<!-- ********************************************************************** -->
+        </div>
+    </div>
+    <div class="footer"><script type="text/javascript" src="footer.js"></script></div>
+</div>
+</body>
+</html>

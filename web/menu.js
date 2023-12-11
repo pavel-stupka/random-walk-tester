@@ -1,0 +1,5 @@
+document.write("<a href='main.html'>Introduction</a>")
+document.write("<a href='download.html'>Download</a>")
+document.write("<a href='changes.html'>Changes</a>")
+document.write("<a href='usage.html'>Usage</a>")
+document.write("<a href='visualization.html'>Visualization</a>")

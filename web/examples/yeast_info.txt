@@ -1,0 +1,11 @@
+GRAPH INFO FILE
+
+Directed: false
+Weighted: false
+
+Vertices: 1870
+Edges: 2240
+
+Edges / Vertices ratio = 1.1978609625668448 (i.e. average 1 vertex = 1.1978609625668448 edge[s])
+
+Degree (min/max): 1/56

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>RWTester</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="Cache-control" content="no-cache"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class="main">
+    <div class="header">
+        <span class="header-title">RWTester</span><br/>
+        <span class="header-title-two">software for testing a random walk</span>
+    </div>
+    <div class="container">
+        <div class="navigation"><script type="text/javascript" src="menu.js"></script></div>
+        <div class="page_content">
+<!-- ********************************************************************** -->
+
+<h1>ChartGenerator</h1>
+
+<p>ChartGenerator is a program for generating line graphs from the results
+of the random walk analysis. These results are plain text files having
+on each its line two numbers (x-axis and y-axis values).
+</p>
+
+<h2>Download</h2>
+
+<ul>
+   <li><a href="download/ChartGenerator-v0.3.tar.gz">ChartGenerator-v0.3.tar.gz</a></li>
+</ul>
+
+<h2>Installation</h2>
+<p>Download the archive above and extract it. Then cd into its directory and run
+<code>sh install.sh</code> This will install the program to your home directory
+and executable script to $HOME/bin/. If you run the installation as
+a root the program will be installed to /usr/local/ and executable script
+to /usr/local/bin/.
+</p>
+
+<p>If you are Windows user you can always run the program directly:
+<code>java -jar ChartGenerator.jar</code>
+</p>
+
+<h2>Usage</h2>
+
+<p>Suppose we have installed ChartGenerator on UNIX-like OS. We can run
+the program by typing command:
+<code>chartgen</code>.
+This command without the parameters prints the info about the ChartGenerator usage. 
+Let's have a look at some cases. We have two data files &#8212; data_1 and data_2 as follows:
+</p>
+
+<h3>data_1</h3>
+<pre>
+1        1
+2        4
+3        9
+4        16
+5        25
+6        36
+7        49
+8        64
+9        81
+10       100
+</pre>
+
+<h3>data_2</h3>
+<pre>
+1        100
+2        81
+3        64
+4        49
+5        36
+6        25
+7        16
+8        9
+9        4
+10       1
+
+</pre>
+
+<p>We want to generate a graph from both of these data files. We can run:
+<code>chartgen data_1 data_2 -out graph.png -title "Exp graph" -legend "data 1|data 2" -size 500x400</code>
+This will generate new png image:
+</p>
+
+<p><img alt="graph image" src="images/graph.png"/></p>
+
+<p>As you can see the usage of ChartGenerator is quite intuitive.
+</p>
+
+<!-- ********************************************************************** -->
+        </div>
+    </div>
+    <div class="footer"><script type="text/javascript" src="footer.js"></script></div>
+</div>
+</body>
+</html>

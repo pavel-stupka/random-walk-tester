@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>RWTester</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="Cache-control" content="no-cache"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class="main">
+    <div class="header">
+        <span class="header-title">RWTester</span><br/>
+        <span class="header-title-two">software for testing a random walk</span>
+    </div>
+    <div class="container">
+        <div class="navigation"><script type="text/javascript" src="menu.js"></script></div>
+        <div class="page_content">
+<!-- ********************************************************************** -->
+
+<h1>Graph generating</h1>
+
+<p>This tutorial will teach you how to use RWTester to generate graphs.
+RWTester can generate several types of graphs. These are:</p>
+
+<ul>
+    <li>Complete graphs</li>
+    <li>Scale-free graphs</li>
+    <li>Trees</li>
+    <li>Random graphs (since version 0.1)</li>
+</ul>
+
+<p>More types of graphs are planned to be implemented.</p>
+
+<h2>In general</h2>
+<p>If you want to use RWTester to generate a graph you have to use a
+<code>-generate</code> option. An argument of this option is a regular
+expression that describes required graph. Output of this action is a graph
+saved to the file with a name of the given regular expression and with
+the suffix <code>.graph</code>. Let's have a look at the following example:
+</p>
+
+<pre>
+rwtester -generate K50
+</pre>
+
+<p>This command will generate a complete graph with 50 vertices and saves
+it to the file named <code>K50.graph</code>.If you do not want to use a default
+name for the output, you can use <code>-template</code> option as follows:</p>
+
+<pre>
+rwtester -generate K50 -template complete
+</pre>
+
+<p>This command will generate a complete graph with 50 vertices and saves
+it to the file named <code>complete.graph</code>.</p>
+
+
+<h2>Complete graphs</h2>
+<p>Read more about complete graphs <a href="http://en.wikipedia.org/wiki/Complete_graph">here</a>.
+The regular expression for complete graphs starts with the <code>'K'</code> character
+followed by an integer saying how many vertices the graph should be built from.
+The regular expression looks like this:
+</p>
+
+<pre>
+Ky
+</pre>
+
+<ul>
+    <li><code>y</code> value &#8212; how many vertices should be generated</li>
+</ul>
+
+<h2>Scale-free graphs</h2>
+<p>Every new vertex is connected to exactly
+<i>x</i> allready existing vertices that are chosen randomly. This is the
+way to build a <a href="http://en.wikipedia.org/wiki/Scale-free_network">
+scale-free network</a>. The regular expression for these graphs starts with
+<code>'SF'</code> characters followed by two integers. The regular expression
+looks like this:
+</p>
+
+<pre>
+SFx-y
+</pre>
+
+<ul>
+    <li><code>x</code> value &#8212; to how many vertices the new vertex should be randomly connected</li>
+    <li><code>y</code> value &#8212; how many vertices should be generated</li>
+</ul>
+
+
+<h2>Trees</h2>
+<p>Read more about trees <a href="http://en.wikipedia.org/wiki/Tree_structure">here</a>.
+The regular expression for trees starts with the <code>'T'</code> character followed by
+two integers. The regular expression looks like this:
+</p>
+
+<pre>
+Tx-y
+</pre>
+
+<ul>
+    <li><code>x</code> value &#8212; arity of a tree (number of childrens of every node)</li>
+    <li><code>y</code> value &#8212; depth of a tree</li>
+</ul>
+
+<p>For example <code>T2-3</code> generates a binary tree with a depth equal to three.
+That means the graph has 15 vertices and 14 edges.</p>
+
+
+<h2>Random graphs graphs</h2>
+<p>First the program generates all vertices and then all edges that
+every edge connects two randomly selected vertices. See <a href="http://en.wikipedia.org/wiki/Random_graph">
+random graphs</a>. The regular expression for these graphs starts with
+<code>'R'</code> character followed by two integers. The regular expression
+looks like this:
+
+</p>
+
+<pre>
+Rx-y
+</pre>
+
+<ul>
+    <li><code>x</code> value &#8212; total number of vertices</li>
+    <li><code>y</code> value &#8212; total number of edges that are choosen randomly</li>
+</ul>
+
+
+<!-- ********************************************************************** -->
+        </div>
+    </div>
+    <div class="footer"><script type="text/javascript" src="footer.js"></script></div>
+</div>
+</body>
+</html>

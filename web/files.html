@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>RWTester</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="Cache-control" content="no-cache"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class="main">
+    <div class="header">
+        <span class="header-title">RWTester</span><br/>
+        <span class="header-title-two">software for testing a random walk</span>
+    </div>
+    <div class="container">
+        <div class="navigation"><script type="text/javascript" src="menu.js"></script></div>
+        <div class="page_content">
+<!-- ********************************************************************** -->
+
+<h1>Analysis data files</h1>
+<p>This tutorial describes and explains what data files are produced
+as a result of the random walk analysis. In the following text 
+<code>template</code> is used as a default graph name or an argument
+of <code>-template</code> option.</p>
+
+<h2>Graph analysis</h2>
+<p>Results of the graph analysis are these files:</p>
+
+<ul>
+    <li><code>template_info.txt</code></li>
+</ul>
+<ul>
+    <li><code>template_deg.txt</code></li>
+    <li><code>template_in.txt</code> (directed graphs only)</li>
+    <li><code>template_out.txt</code> (directed graphs only)</li>
+</ul>
+
+<p><b>template_info.txt</b><br/>
+This file contains summary information about the graph. Here (<a href="examples/template_info.txt">template_info.txt</a>)
+is an example of such a file (this file was produced by RWTester version 0.1alpha).
+</p>
+
+<p><b>template_deg.txt</b><br/>
+This file contains data dependency how many vertices have the given degree.
+Here (<a href="examples/template_deg.txt">template_deg.txt</a>) is an example of such a file.
+If we use this file as an input for <a href="visualization.html">ChartGenerator</a>
+this image (<a href="images/template_deg.png">template_deg.png</a>) will be the result.
+Meaning of the degree for directed graphs is sum of both in and out degrees.
+</p>
+
+<p><b>template_in.txt</b><br/>
+The same as above but for in-degree only. This file is produced for directed
+graphs only.
+</p>
+
+<p><b>template_out.txt</b><br/>
+The same as above but for out-degree only. This file is produced for directed
+graphs only.
+</p>
+
+
+<h2>Random walk analysis</h2>
+<p>Results of the random walk analysis are these files:</p>
+
+<ul>
+    <li><code>template_coverage.txt</code></li>
+</ul>
+<ul>
+    <li><code>template_degree_visited.txt</code></li>
+    <li><code>template_in_degree_visited.txt</code> (directed graphs only)</li>
+    <li><code>template_out_degree_visited.txt</code> (directed graphs only)</li>
+</ul>
+<ul>
+    <li><code>template_degree_time.txt</code></li>
+    <li><code>template_in_degree_time.txt</code> (directed graphs only)</li>
+    <li><code>template_out_degree_time.txt</code> (directed graphs only)</li>
+</ul>
+<ul>
+    <li><code>template_degree_time_length.txt</code></li>
+    <li><code>template_in_degree_time_length.txt</code> (directed graphs only)</li>
+    <li><code>template_out_degree_time_length.txt</code> (directed graphs only)</li>
+</ul>
+
+<p><b>template_coverage.txt</b><br/>
+This is data dependency in what time the given graph coverage was achieved.
+For example 50% of a graph coverage means that exactly one half of all vertices
+were at least once visited by the running random walk. Let's have a look at this
+line:
+</p>
+
+<pre>
+50    129680
+</pre>
+
+<p>This means that 50% graph coverage was achieved after 129680 steps of
+the random walk.</p>
+
+<p>Here (<a href="examples/template_coverage.txt">template_coverage.txt</a>)
+is an example of such a file. Notice that the border of the random walk was
+90% graph coverage. So the coverage higher than 90% has the time equal to zero.
+<a href="visualization.html">ChartGenerator</a> result for this file is
+here (<a href="images/template_coverage.png">template_coverage.png</a>).</p>
+
+<p><b>template_degree_visited.txt</b><br/>
+This data dependency means how many avarage visits have all vertices with
+the given degree. Meaning of the degree for directed graphs is sum of both in and out degrees.
+There are two more files for directed graphs: template_in_degree_visited.txt
+and template_out_degree_visited.txt.</p>
+
+<p><b>template_degree_time.txt</b><br/>
+This data dependency means in what avarage time all vertices with
+the given degree were first visited by the random walk. Meaning of the 
+degree for directed graphs is sum of both in and out degrees. There are two 
+more files for directed graphs: template_in_degree_time.txt
+and template_out_degree_time.txt.</p>
+
+<p><b>template_degree_time_length.txt</b><br/>
+This is data dependency of a ratio of the first visit time and length from
+the starting point of the random walk on the degree. The length of a vertex
+from the starting point is computed by BFS algorithm. Meaning of the degree for 
+directed graphs is sum of both in and out degrees. There are two more files 
+for directed graphs: template_in_degree_time_length.txt and template_out_degree_time_length.txt.</p>
+
+<!-- ********************************************************************** -->
+        </div>
+    </div>
+    <div class="footer"><script type="text/javascript" src="footer.js"></script></div>
+</div>
+</body>
+</html>

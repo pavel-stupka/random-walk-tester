@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>RWTester</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="Cache-control" content="no-cache"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class="main">
+    <div class="header">
+        <span class="header-title">RWTester</span><br/>
+        <span class="header-title-two">software for testing a random walk</span>
+    </div>
+    <div class="container">
+        <div class="navigation"><script type="text/javascript" src="menu.js"></script></div>
+        <div class="page_content">
+<!-- ********************************************************************** -->
+
+<h1>Graph analysis</h1>
+
+<p>A graph analysis is very important for determining a graph structure.
+We can study different kinds of graphs. For example those respecting the power
+law or graphs having a scale-free structure. A graph analysis produces
+several data files. You can read more <a href="files.html">here</a>
+(in the section <i>Graph analysis</i>) about produced data files.
+</p>
+
+<p>We will analyze this graph (<a href="examples/yeast.graph">yeast.graph</a>).
+It is a protein interaction network and it is undirected. Let's start the
+analysis:
+</p>
+
+<pre>
+rwtester -mode analyze -input yeast.graph -template yeast
+</pre>
+
+<p>An option <code>-mode</code> has the value <code>analyze</code> which means
+we want to analyze the graph given by the option <code>-input</code>.
+Because we have used a <code>-template</code> option the results will be
+saved to files starting their names with <code>yeast</code>.</p>
+
+<p>
+Results of the analysis are these files:
+</p>
+
+<ul>
+    <li><a href="examples/yeast_info.txt">yeast_info.txt</a></li>
+    <li><a href="examples/yeast_deg.txt">yeast_deg.txt</a></li>
+</ul>
+
+<p>Now we can run <a href="visualization.html">ChartGenerator</a> by typing:</p>
+
+<pre>
+chartgen yeast_deg.txt -x degree -y vertices
+</pre>
+
+<p>This command will produce the following image</p>
+
+<img alt="yeast_deg.png" src="images/yeast_deg.png" />
+
+<p>
+As you can see our analyzed graph seems to be a scale-free network.
+</p>
+
+<!-- ********************************************************************** -->
+        </div>
+    </div>
+    <div class="footer"><script type="text/javascript" src="footer.js"></script></div>
+</div>
+</body>
+</html>
